@@ -5,13 +5,10 @@ int main() {
     int num, sum = 0, count = 0;
     float urtacha;
 
-  
     f = fopen("output.txt", "r");
     if (f == NULL) {
-        printf("Faylni ochib bo'lmadi.\n");
         return 1;
     }
-
 
     while (fscanf(f, "%d", &num) == 1) {
         sum += num;
@@ -25,9 +22,8 @@ int main() {
     } else {
         printf("Faylda sonlar topilmadi.\n");
     }
-
-  
     fclose(f);
+    
     return 0;
 }
     
