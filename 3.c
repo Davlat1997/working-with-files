@@ -10,17 +10,14 @@ int main() {
 
     inputFile = fopen("input.txt", "r");
     if (inputFile == NULL) {
-        printf("input.txt faylini ochib bo'lmadi.\n");
         return 1;
     }
-
     printf("Qaysi matnli qatorni qidiryapsiz? ");
     fgets(searchText, sizeof(searchText), stdin);
     searchText[strcspn(searchText, "\n")] = '\0'; 
 
     outputFile = fopen("output.txt", "w");
     if (outputFile == NULL) {
-        printf("output.txt faylini yaratib bo'lmadi.\n");
         fclose(inputFile);
         return 1;
     }
