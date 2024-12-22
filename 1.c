@@ -1,12 +1,18 @@
 #include <stdio.h>
 
 int main() {
-    FILE *f;
+    FILE *f, *output;
     int num, sum = 0, count = 0;
     float urtacha;
 
-    f = fopen("output.txt", "r");
+    f = fopen("input.txt", "r");
     if (f == NULL) {
+        return 1;
+    }
+
+    output = fopen("output.txt", "w");
+    if (output == NULL) {
+        fclose(f);
         return 1;
     }
 
@@ -15,15 +21,13 @@ int main() {
         count++;
     }
 
-   
     if (count > 0) {
         urtacha = (float)sum / count;
-        printf("Sonlarning o'rta arifmetigi: %.2f\n", urtacha);
-    } else {
-        printf("Faylda sonlar topilmadi.\n");
-    }
-    fclose(f);
+        fprintf(output, "Sonlarning o'rta arifmetigi: %.2f\n", urtacha);
+    } 
     
+    fclose(f);
+    fclose(output);
+
     return 0;
 }
-    
