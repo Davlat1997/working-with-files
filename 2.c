@@ -9,13 +9,11 @@ int main() {
     
     inputFile = fopen("input.txt", "r");
     if (inputFile == NULL) {
-        printf("1.txt faylini ochib bo'lmadi.\n");
         return 1;
     }
 
     outputFile = fopen("output.txt", "w");
     if (outputFile == NULL) {
-        printf("output.txt faylini ochib bo'lmadi.\n");
         fclose(inputFile);
         return 1;
     }
@@ -34,15 +32,10 @@ int main() {
             }
         }
     }
-
-  
     fprintf(outputFile, "Eng uzun so'z: %s\n", longest);
     fprintf(outputFile, "Eng qisqa so'z: %s\n", shortest);
-
- 
     fclose(inputFile);
     fclose(outputFile);
 
-    printf("Natijalar output.txt fayliga yozildi.\n");
     return 0;
 }
